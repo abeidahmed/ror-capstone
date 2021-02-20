@@ -1,3 +1,7 @@
 input[type='submit']:hover {
   cursor: pointer;
 }
+
+[hidden][hidden] {
+  display: none !important;
+}

@@ -1,22 +1,20 @@
-<div class="fixed inset-0 z-10 lg:hidden">
+<div data-sidebar-target="overlay" class="fixed inset-0 z-10 lg:hidden" hidden>
   <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
 </div>
-<aside class="fixed top-0 z-50 flex flex-col flex-shrink-0 w-64 h-screen transition duration-150 ease-in-out transform bg-gray-800 lg:translate-x-0 lg:sticky">
+<aside data-sidebar-target="aside" class="fixed top-0 z-50 -translate-x-full flex flex-col flex-shrink-0 w-64 h-screen transition duration-150 ease-in-out transform bg-gray-800 lg:translate-x-0 lg:sticky">
   <div class="relative flex items-center h-16 px-4 bg-gray-900">
     <%= embed_svg "logo-full-brand" %>
-    <div class="absolute top-0 right-0 p-2 -mr-14">
-      <button class="flex items-center p-2 bg-gray-700 rounded-full focus:outline-none focus:bg-gray-500 lg:hidden">
+    <div data-sidebar-target="closeButton" class="absolute top-0 right-0 p-2 -mr-14" hidden>
+      <button data-action="sidebar#close" class="flex items-center p-2 bg-gray-700 rounded-full focus:outline-none focus:bg-gray-500 lg:hidden">
         <%= embed_svg "x", class: "w-6 h-6 text-white" %>
       </button>
     </div>
   </div>
   <div class="mt-4">
     <nav class="px-2 space-y-1 text-sm font-medium">
-      <a href="#" class="flex items-center p-2 transition duration-150 ease-in-out bg-gray-900 rounded-md group">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor" class="w-6 h-6 text-gray-200">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-        </svg>
-        <span class="pl-3 leading-5 tracking-wide text-gray-100 transition duration-150 ease-in-out group-hover:text-gray-100">
+      <a href="#" class="flex items-center p-2 transition duration-150 ease-in-out bg-gray-900 text-white rounded-md">
+        <%= embed_svg "home", class: "w-6 h-6" %>
+        <span class="pl-3 leading-5 tracking-wide transition duration-150 ease-in-out">
           Dashboard
         </span>
       </a>
