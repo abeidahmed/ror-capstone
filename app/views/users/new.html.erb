@@ -1,0 +1,14 @@
+<%= form_with model: @user do |form| %>
+  <%= form.label :username %>
+  <%= form.text_field :username %>
+
+  <%= form.label :full_name %>
+  <%= form.text_field :full_name %>
+
+  <%= form.label :password %>
+  <%= form.text_field :password %>
+
+  <%= form.submit "Create account" %>
+
+  <%= link_to "Sign in", new_session_path %>
+<% end %>
