@@ -2,15 +2,17 @@
   <div>
     <%= form.label :username, class: "block text-sm font-medium text-gray-700" %>
     <%= form.text_field :username, class: "text-sm rounded-md border-gray-300 block w-full mt-1 shadow-sm form-input", autocomplete: "off", autofocus: true %>
-    <p class="form__error" data-form-target="showError" data-form-error="username"></p>
+    <%= render "shared/form_error", error_type: "username" %>
   </div>
   <div>
     <%= form.label :full_name, class: "block text-sm font-medium text-gray-700" %>
     <%= form.text_field :full_name, class: "text-sm rounded-md border-gray-300 block w-full mt-1 shadow-sm form-input", autocomplete: "off"%>
+    <%= render "shared/form_error", error_type: "full_name" %>
   </div>
   <div>
     <%= form.label :password, class: "block text-sm font-medium text-gray-700" %>
     <%= form.password_field :password, class: "text-sm rounded-md border-gray-300 block w-full mt-1 shadow-sm form-input", autocomplete: "off"  %>
+    <%= render "shared/form_error", error_type: "password" %>
   </div>
   <div>
     <span class="rounded-md shadow-sm">
