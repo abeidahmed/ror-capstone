@@ -3,6 +3,7 @@ import ApplicationController from './application_controller';
 export default class extends ApplicationController {
   static targets = ['toggleable'];
   static values = { attribute: String };
+  static classes = ['attribute'];
 
   connect() {
     if (this.isPreview) {
@@ -20,8 +21,20 @@ export default class extends ApplicationController {
     });
   }
 
+  open() {
+    if (this.hasAttributeClass) {
+      this.toggleableTarget.classList.remove(this.attributeClass);
+    }
+  }
+
   hide() {
-    this.toggleableTarget.setAttribute(this.attributeValue, '');
+    if (this.hasAttributeValue) {
+      this.toggleableTarget.setAttribute(this.attributeValue, '');
+    }
+
+    if (this.hasAttributeClass) {
+      this.toggleableTarget.classList.add(this.attributeClass);
+    }
   }
 
   hideOutsideClick(e) {
