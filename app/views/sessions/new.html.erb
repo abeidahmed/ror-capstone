@@ -1,0 +1,11 @@
+<%= form_with url: sessions_path do |form| %>
+  <%= form.label :username %>
+  <%= form.text_field :username %>
+
+  <%= form.label :password %>
+  <%= form.text_field :password %>
+
+  <%= form.submit "Sign in" %>
+
+  <%= link_to "Sign up", new_user_path %>
+<% end %>

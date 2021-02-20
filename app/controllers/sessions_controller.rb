@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
 
     if user&.authenticate(params[:password])
       sign_in(user)
+      redirect_to root_path
     else
       render json: { errors: { invalid: ['credentials'] } }, status: :unprocessable_entity
     end
