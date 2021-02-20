@@ -4,7 +4,7 @@ class User < ApplicationRecord
   before_create :generate_auth_token
   before_save :normalize_username
 
-  validates :full_name, length: { maximum: 255 }
+  validates :full_name, presence: true, length: { maximum: 255 }
   validates :username, presence: true, length: { maximum: 255 }
   validates :password, presence: true, length: { minimum: 6 }
 
