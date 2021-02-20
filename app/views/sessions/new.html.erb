@@ -1,11 +1,27 @@
-<%= form_with url: sessions_path do |form| %>
-  <%= form.label :username %>
-  <%= form.text_field :username %>
-
-  <%= form.label :password %>
-  <%= form.text_field :password %>
-
-  <%= form.submit "Sign in" %>
-
-  <%= link_to "Sign up", new_user_path %>
-<% end %>
+<div class="flex items-center justify-center min-h-screen px-4 py-12 bg-gray-50 sm:px-6 lg:px-8">
+  <div class="w-full max-w-md">
+    <div>
+      <%= embed_svg "logo-on-white", class: "w-auto h-12 mx-auto" %>
+      <h1 class="mt-6 text-3xl font-extrabold leading-9 text-center text-gray-900">
+        Sign in to your account
+      </h1>
+      <p class="mt-2 text-sm leading-5 text-center text-gray-600">
+        Don't have an account?
+        <%= link_to "Sign up", new_user_path, class: "font-medium text-indigo-600 transition duration-150 ease-in-out hover:text-indigo-500 focus:outline-none focus:underline" %>
+      </p>
+    </div>
+    <%= form_with url: sessions_path, class: "mt-8" do |form| %>
+      <div class="rounded-md shadow-sm">
+        <div>
+          <%= form.text_field :username, required: true, class: "relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-t-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5", placeholder: "Username", autofocus: true, autocomplete: "off" %>
+        </div>
+        <div class="-mt-px">
+          <%= form.password_field :password, required: true, class: "relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-b-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5", placeholder: "Password", autocomplete: "off" %>
+        </div>
+        <div class="mt-6">
+          <%= form.submit "Sign in", class: "flex justify-center w-full px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
