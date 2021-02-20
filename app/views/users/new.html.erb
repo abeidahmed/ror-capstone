@@ -10,19 +10,19 @@
       <%= form_with model: @user, class: "space-y-4" do |form| %>
         <div>
           <%= form.label :username, class: "block text-sm font-medium text-gray-700" %>
-          <%= form.text_field :username, class: "rounded-md border-gray-300 block w-full mt-1 shadow-sm form-input", autocomplete: "off", autofocus: true %>
+          <%= form.text_field :username, class: "text-sm rounded-md border-gray-300 block w-full mt-1 shadow-sm form-input", autocomplete: "off", autofocus: true %>
         </div>
         <div>
           <%= form.label :full_name, class: "block text-sm font-medium text-gray-700" %>
-          <%= form.text_field :full_name, class: "rounded-md border-gray-300 block w-full mt-1 shadow-sm form-input", autocomplete: "off"%>
+          <%= form.text_field :full_name, class: "text-sm rounded-md border-gray-300 block w-full mt-1 shadow-sm form-input", autocomplete: "off"%>
         </div>
         <div>
           <%= form.label :password, class: "block text-sm font-medium text-gray-700" %>
-          <%= form.password_field :password, class: "rounded-md border-gray-300 block w-full mt-1 shadow-sm form-input", autocomplete: "off"  %>
+          <%= form.password_field :password, class: "text-sm rounded-md border-gray-300 block w-full mt-1 shadow-sm form-input", autocomplete: "off"  %>
         </div>
         <div>
           <span class="rounded-md shadow-sm">
-            <%= form.submit "Create account", class: "block w-full px-3 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap transition duration-150 ease-in-out bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700" %>
+            <%= form.submit "Create account", class: "block w-full px-3 py-2 text-sm font-medium leading-6 text-white whitespace-no-wrap transition duration-150 ease-in-out bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700" %>
           </span>
         </div>
       <% end %>
@@ -36,7 +36,7 @@
         <h3 class="text-gray-700">Already have an account?</h3>
         <div class="mt-4">
           <span class="rounded-md shadow-sm">
-            <%= link_to "Sign in", new_session_path, class: "text-center block w-full px-3 py-2 text-base font-medium leading-6 text-gray-700 whitespace-no-wrap transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:text-gray-800 active:bg-gray-50" %>
+            <%= link_to "Sign in", new_session_path, class: "text-center block w-full px-3 py-2 text-sm font-medium leading-6 text-gray-700 whitespace-no-wrap transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:text-gray-800 active:bg-gray-50" %>
           </span>
         </div>
       </div>
