@@ -32,7 +32,10 @@ module RorCapstone
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
 
-    # Don't generate system test files.
     config.generators.system_tests = nil
+    config.generators.stylesheets  = false
+    config.generators.helper       = false
+    config.generators.helper_specs = false
+    config.generators.view_specs   = false
   end
 end
