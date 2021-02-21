@@ -7,7 +7,7 @@
       <button data-action="toggle#toggle" class="flex items-center text-sm transition duration-150 ease-in-out rounded-full focus:outline-none">
         <img class="w-8 h-8 rounded-full" src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=144&amp;h=144&amp;q=80" alt="User profile">
         <span class="items-center hidden lg:flex">
-          <p class="pl-3 text-sm font-medium text-blue-100">Esther Howard</p>
+          <p class="pl-3 text-sm font-medium text-blue-100"><%= current_user.full_name %></p>
           <%= embed_svg "chevron-down", class: "h-5 w-5 text-blue-300" %>
         </span>
       </button>
