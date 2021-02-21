@@ -5,6 +5,14 @@ RSpec.describe User, type: :model do
 
   describe 'association' do
     it { is_expected.to have_many(:tweets).with_foreign_key(:author_id).dependent(:destroy) }
+
+    it { is_expected.to have_many(:active_followings).with_foreign_key(:follower_id).dependent(:destroy) }
+
+    it { is_expected.to have_many(:followings).through(:active_followings) }
+
+    it { is_expected.to have_many(:passive_followings).with_foreign_key(:followed_id).dependent(:destroy) }
+
+    it { is_expected.to have_many(:followers).through(:passive_followings) }
   end
 
   describe 'validations' do
