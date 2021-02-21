@@ -1,0 +1,56 @@
+<div data-controller="toggle" data-toggle-attribute-class="hidden" class="grid xl:grid-cols-12 px-4 gap-2 relative">
+  <div class="xl:col-span-8">
+    <div class="relative" style="padding-bottom: 36%">
+      <div class="absolute inset-0 -mx-4 xl:pr-4">
+        <img class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1548661710-7f540c9c56d6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=80" alt="">
+      </div>
+    </div>
+    <div class="flex items-center justify-between">
+      <nav>
+        <a href="#" class="py-3 font-medium leading-5 px-4 inline-block text-gray-600 border-b-2 border-blue-500 hover:text-gray-900">Tweets</a>
+      </nav>
+      <div class="inline-flex flex-items-center justify-center xl:hidden">
+        <button type="button" data-action="toggle#open" class="text-gray-500"><%= embed_svg "menu-alt", class: "h-6 w-6" %></button>
+      </div>
+    </div>
+    <div id="tweet-list" class="px-4 bg-white rounded-md shadow my-4 divide-y">
+      <%= render @user_tweets %>
+    </div>
+  </div>
+  <aside data-toggle-target="toggleable" class="hidden xl:col-span-4 lg:pl-0 absolute w-80 border-l border-gray-200 right-0 top-0 xl:block bg-white xl:static xl:w-full xl:pl-4 xl:bg-transparent lg:border-l-0" style="height: calc(100vh - 64px)">
+    <div class="relative">
+      <div class="absolute -ml-12 xl:hidden top-2">
+        <button type="button" data-action="toggle#hide" class="p-2 rounded-full text-gray-700 bg-white shadow"><%= embed_svg "x", class: "h-6 w-6" %></button>
+      </div>
+      <div class="xl:mt-4 bg-white xl:rounded-lg xl:shadow">
+        <div class="py-4 divide-y space-y-4">
+          <section class="text-center">
+            <div>
+              <img class="h-16 w-16 mx-auto rounded-full" src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=144&amp;h=144&amp;q=80" alt="">
+            </div>
+            <h2 class="text-base mt-2 leading-5"><%= @user.full_name %></h2>
+            <span class="text-gray-500 leading-5">@<%= @user.username %></span>
+          </section>
+          <section class="py-3 grid grid-cols-3">
+            <div class="text-center col-span-1">
+              <h4 class="text-lg font-medium">61</h4>
+              <p class="text-gray-600">Tweets</p>
+            </div>
+            <div class="text-center col-span-1">
+              <h4 class="text-lg font-medium">61</h4>
+              <p class="text-gray-600">Followers</p>
+            </div>
+            <div class="text-center col-span-1">
+              <h4 class="text-lg font-medium">61</h4>
+              <p class="text-gray-600">Followings</p>
+            </div>
+          </section>
+          <section class="py-3">
+            <h3 class="px-3 text-base text-gray-600 font-medium mb-2">Followed by</h3>
+            <%= render @user %>
+          </section>
+        </div>
+      </div>
+    </div>
+  </aside>
+</div>
