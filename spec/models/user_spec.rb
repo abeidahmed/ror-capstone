@@ -3,6 +3,10 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   subject(:user) { build(:user) }
 
+  describe 'association' do
+    it { is_expected.to have_many(:tweets).with_foreign_key(:author_id).dependent(:destroy) }
+  end
+
   describe 'validations' do
     it { is_expected.to have_secure_password }
 

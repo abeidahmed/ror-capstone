@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :tweets, foreign_key: :author_id, dependent: :destroy
+
   has_secure_password
 
   before_create :generate_auth_token
