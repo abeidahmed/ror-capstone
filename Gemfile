@@ -5,6 +5,7 @@ ruby '3.0.0'
 
 gem 'active_link_to', '~> 1.0', '>= 1.0.5'
 gem 'bcrypt', '~> 3.1.7'
+gem 'counter_culture', '~> 2.7'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.1'
