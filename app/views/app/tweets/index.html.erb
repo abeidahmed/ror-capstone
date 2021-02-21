@@ -14,10 +14,14 @@
           <img class="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=144&amp;h=144&amp;q=80" alt="">
         </div>
         <div class="flex-1">
-          <%= form_with model: [:app, Tweet.new], id: "tweet-form", data: { remote: true } do |form| %>
+          <%= form_with model: [:app, Tweet.new], id: "tweet-form", data: { controller: "form", action: "ajax:error->form#onError", remote: true } do |form| %>
             <%= form.text_area :text, class: "border-0 focus:ring-0 w-full resize-none", placeholder: "What's on your mind?", rows: 2, autocomplete: "off" %>
-            <div class="border-t border-gray-200 flex justify-end">
-              <%= form.submit "Tweet", class: "px-4 py-2 mt-2 text-sm font-medium leading-6 text-white whitespace-no-wrap transition duration-150 ease-in-out bg-blue-500 border border-transparent rounded-full hover:bg-blue-600 focus:outline-none focus:border-blue-700 focus:shadow-outline-indigo active:bg-blue-700" %>
+            <div class="border-t border-gray-200 flex justify-between items-center">
+              <%= render "shared/form_error", error_type: "text" %>
+              <div class="flex items-center">
+                <span class="text-gray-500 mr-3 leading-5">0 / 255</span>
+                <%= form.submit "Tweet", class: "px-4 py-2 mt-2 text-sm font-medium leading-6 text-white whitespace-no-wrap transition duration-150 ease-in-out bg-blue-500 border border-transparent rounded-full hover:bg-blue-600 focus:outline-none focus:border-blue-700 focus:shadow-outline-indigo active:bg-blue-700" %>
+              </div>
             </div>
           <% end %>
         </div>

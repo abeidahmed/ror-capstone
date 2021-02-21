@@ -7,7 +7,7 @@ class App::TweetsController < App::ApplicationController
     if tweet.save
       redirect_to app_tweets_path
     else
-      render json: { errors: user.errors }, status: :unprocessable_entity
+      render json: { errors: tweet.errors }, status: :unprocessable_entity
     end
   end
 
