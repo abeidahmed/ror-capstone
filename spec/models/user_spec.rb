@@ -51,4 +51,42 @@ RSpec.describe User, type: :model do
       expect(user.auth_token).to be_present
     end
   end
+
+  describe '#follow' do
+    it 'follows other user' do
+      user = create(:user)
+      another_user = create(:user)
+      user.follow(another_user)
+
+      expect(user.followings.map(&:id)).to match_array([another_user.id])
+    end
+  end
+
+  describe '#unfollow' do
+    it 'destroys the following record' do
+      user = create(:user)
+      another_user = create(:user)
+      user.follow(another_user)
+      user.unfollow(another_user)
+
+      expect(user.followings.count).to be_zero
+    end
+  end
+
+  describe '#following?' do
+    it 'returns true if user is following other user' do
+      user = create(:user)
+      another_user = create(:user)
+      user.follow(another_user)
+
+      expect(user.following?(another_user)).to be_truthy
+    end
+
+    it 'returns false if user is not following other user' do
+      user = create(:user)
+      another_user = create(:user)
+
+      expect(user.following?(another_user)).to be_falsy
+    end
+  end
 end

@@ -16,6 +16,18 @@ class User < ApplicationRecord
   validates :username, presence: true, length: { maximum: 255 }
   validates :password, presence: true, length: { minimum: 6 }
 
+  def follow(other_user)
+    active_followings.create(followed_id: other_user.id)
+  end
+
+  def unfollow(other_user)
+    active_followings.find_by(followed_id: other_user.id).destroy
+  end
+
+  def following?(other_user)
+    followings.include?(other_user)
+  end
+
   private
 
   def normalize_username
