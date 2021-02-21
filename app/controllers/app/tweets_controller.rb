@@ -1,5 +1,7 @@
 class App::TweetsController < App::ApplicationController
-  def index; end
+  def index
+    @tweets = Tweet.includes(:author)
+  end
 
   def create
     tweet = current_user.tweets.build(tweet_params)

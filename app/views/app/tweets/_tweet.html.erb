@@ -1,16 +1,15 @@
-<div class="flex space-x-3">
+<div class="flex space-x-3 py-4">
   <div class="flex-shrink-0">
     <img class="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=144&amp;h=144&amp;q=80" alt="">
   </div>
   <div class="flex-1">
     <div class="flex items-center">
       <div class="flex items-center min-w-0 truncate w-0 flex-1">
-        <h5 class="font-medium text-gray-700 truncate">Abeid Ahmed</h5>
-        <span class="text-gray-500 ml-2 truncate">@abeidahmed</span>
+        <h5 class="font-medium text-gray-700 truncate"><%= tweet.author_full_name %></h5>
+        <span class="text-gray-500 ml-2 truncate">@<%= tweet.author_username %></span>
       </div>
-      <span class="mx-1">&middot;</span>
-      <span class="text-gray-500">26m</span>
+      <span class="text-gray-500"><%= time_ago_in_words(tweet.created_at) %> ago</span>
     </div>
-    <p class="mt-2">Lorem ipsum was the best text editor possible.</p>
+    <p class="mt-2"><%= tweet.text %></p>
   </div>
 </div>

@@ -18,10 +18,8 @@
         </div>
       </div>
     </div>
-    <div id="tweet-list" class="p-4 bg-white rounded-md shadow my-4">
-      <%= render "tweet" %>
-      <hr class="my-4" />
-      <%= render "tweet" %>
+    <div id="tweet-list" class="px-4 bg-white rounded-md shadow my-4 divide-y">
+      <%= render @tweets %>
     </div>
   </div>
   <aside data-toggle-target="toggleable" class="hidden xl:col-span-4 lg:pl-0 absolute w-80 border-l border-gray-200 right-0 top-0 xl:block bg-white xl:static xl:w-full xl:pl-4 xl:bg-transparent lg:border-l-0" style="height: calc(100vh - 64px)">
