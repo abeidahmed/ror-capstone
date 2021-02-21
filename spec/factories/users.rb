@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :user, aliases: %i[author] do
+  factory :user, aliases: %i[author follower followed] do
     sequence(:username) { |n| "user#{n}" }
     full_name { 'John Doe' }
     photo { 'https://hello.com' }
