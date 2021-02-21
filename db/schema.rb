@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_21_064512) do
+ActiveRecord::Schema.define(version: 2021_02_21_091740) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,9 @@ ActiveRecord::Schema.define(version: 2021_02_21_064512) do
     t.string "auth_token", default: "", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "tweets_count", default: 0, null: false
+    t.integer "followers_count", default: 0, null: false
+    t.integer "followings_count", default: 0, null: false
     t.index ["auth_token"], name: "index_users_on_auth_token"
     t.index ["username"], name: "index_users_on_username"
   end
