@@ -31,23 +31,14 @@
             <h2 class="text-base mt-2 leading-5"><%= @user.full_name %></h2>
             <span class="text-gray-500 leading-5">@<%= @user.username %></span>
           </section>
-          <section class="py-3 grid grid-cols-3">
-            <div class="text-center col-span-1">
-              <h4 class="text-lg font-medium">61</h4>
-              <p class="text-gray-600">Tweets</p>
-            </div>
-            <div class="text-center col-span-1">
-              <h4 class="text-lg font-medium">61</h4>
-              <p class="text-gray-600">Followers</p>
-            </div>
-            <div class="text-center col-span-1">
-              <h4 class="text-lg font-medium">61</h4>
-              <p class="text-gray-600">Followings</p>
-            </div>
-          </section>
+          <%= render "stat" %>
           <section class="py-3">
             <h3 class="px-3 text-base text-gray-600 font-medium mb-2">Followed by</h3>
-            <%= render @user %>
+            <%= render @user.followers %>
+          </section>
+          <section class="py-3">
+            <h3 class="px-3 text-base text-gray-600 font-medium mb-2">Following</h3>
+            <%= render @user.followings %>
           </section>
         </div>
       </div>
