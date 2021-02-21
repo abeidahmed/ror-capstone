@@ -11,25 +11,19 @@
     </div>
   </div>
   <div class="mt-4">
-    <nav class="px-2 space-y-1 text-sm font-medium">
-      <a href="#" class="flex items-center p-2 transition duration-150 ease-in-out bg-gray-900 text-white rounded-md">
+    <nav class="sidebar px-2 space-y-1 text-sm font-medium">
+      <%= active_link_to app_tweets_path, class: "flex items-center p-2 rounded-md text-gray-300 hover:text-gray-100 transition duration-150 ease-in-out" do %>
         <%= embed_svg "home", class: "w-6 h-6" %>
         <span class="pl-3 leading-5 tracking-wide transition duration-150 ease-in-out">
           Dashboard
         </span>
-      </a>
-      <a href="#" class="flex items-center p-2 rounded-md text-gray-300 hover:text-gray-100 transition duration-150 ease-in-out">
-        <%= embed_svg "hash-tag", class: "h-6 w-6" %>
-        <span class="pl-3 leading-5 tracking-wide">
-          Discover
-        </span>
-      </a>
-      <a href="#" class="flex items-center p-2 rounded-md text-gray-300 hover:text-gray-100 transition duration-150 ease-in-out">
+      <% end %>
+      <%= active_link_to app_user_path(current_user), class: "flex items-center p-2 rounded-md text-gray-300 hover:text-gray-100 transition duration-150 ease-in-out" do %>
         <%= embed_svg "user", class: "h-6 w-6" %>
         <span class="pl-3 leading-5 tracking-wide">
-          Profile
+          My profile
         </span>
-      </a>
+      <% end %>
     </nav>
   </div>
 </aside>
