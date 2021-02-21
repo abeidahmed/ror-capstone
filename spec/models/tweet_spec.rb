@@ -1,5 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Tweet, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject(:tweet) { build(:tweet) }
+
+  describe 'validations' do
+    it { is_expected.to validate_presence_of(:text) }
+
+    it { is_expected.to validate_length_of(:text).is_at_most(255) }
+  end
 end
