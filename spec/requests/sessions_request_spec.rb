@@ -16,4 +16,13 @@ RSpec.describe 'Sessions', type: :request do
       expect(json.dig(:errors, :invalid)).to be_present
     end
   end
+
+  describe '#destroy' do
+    it 'logs the user out of the app' do
+      sign_in(user)
+      delete session_path('current_user')
+
+      expect(cookies[:auth_token]).to be_blank
+    end
+  end
 end
