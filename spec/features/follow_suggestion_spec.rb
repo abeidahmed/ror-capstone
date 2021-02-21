@@ -24,7 +24,7 @@ RSpec.describe 'FollowSuggestions', type: :feature do
 
       click_button 'Follow'
 
-      expect(page).to have_button('Unfollow')
+      expect(page).not_to have_text(another_user.full_name)
     end
   end
 end

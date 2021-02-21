@@ -89,4 +89,21 @@ RSpec.describe User, type: :model do
       expect(user.following?(another_user)).to be_falsy
     end
   end
+
+  describe '#not_following_users' do
+    it 'returns all the users that are not followed by the users' do
+      user = create(:user)
+      another_user = create(:user)
+
+      expect(user.not_following_users.map(&:id)).to match_array([another_user.id])
+    end
+
+    it 'does not return followed users' do
+      user = create(:user)
+      another_user = create(:user)
+      user.follow(another_user)
+
+      expect(user.not_following_users.map(&:id)).to match_array([])
+    end
+  end
 end

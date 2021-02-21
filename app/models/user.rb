@@ -12,11 +12,11 @@ class User < ApplicationRecord
   before_create :generate_auth_token
   before_save :normalize_username
 
+  scope :recent, -> { order(created_at: :desc) }
+
   validates :full_name, presence: true, length: { maximum: 255 }
   validates :username, presence: true, length: { maximum: 255 }
   validates :password, presence: true, length: { minimum: 6 }
-
-  scope :except_user, ->(user) { where.not(id: user.id) }
 
   def follow(other_user)
     active_followings.create(followed_id: other_user.id)
@@ -28,6 +28,10 @@ class User < ApplicationRecord
 
   def following?(other_user)
     followings.include?(other_user)
+  end
+
+  def not_following_users
+    User.where.not(id: followings.pluck(:id)).where.not(id: id)
   end
 
   private
