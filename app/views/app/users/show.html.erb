@@ -23,8 +23,8 @@
         <button type="button" data-action="toggle#hide" class="p-2 rounded-full text-gray-700 bg-white shadow"><%= embed_svg "x", class: "h-6 w-6" %></button>
       </div>
       <div class="xl:mt-4 bg-white xl:rounded-lg xl:shadow">
-        <div class="py-4 divide-y space-y-4">
-          <section class="text-center">
+        <div class="divide-y space-y-4">
+          <section class="pt-3 text-center">
             <div>
               <img class="h-16 w-16 mx-auto rounded-full" src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=144&amp;h=144&amp;q=80" alt="">
             </div>
@@ -32,11 +32,11 @@
             <span class="text-gray-500 leading-5">@<%= @user.username %></span>
           </section>
           <%= render "stat" %>
-          <section class="py-3">
+          <section class="pt-3">
             <h3 class="px-3 text-base text-gray-600 font-medium mb-2">Followed by</h3>
             <%= render @user.followers %>
           </section>
-          <section class="py-3">
+          <section class="pt-3">
             <h3 class="px-3 text-base text-gray-600 font-medium mb-2">Following</h3>
             <%= render @user.followings %>
           </section>
