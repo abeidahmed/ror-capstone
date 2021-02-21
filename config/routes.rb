@@ -5,5 +5,9 @@ Rails.application.routes.draw do
 
   namespace :app do
     resources :tweets, only: %i[index create]
+
+    resources :users, only: %i[edit] do
+      resources :followings, only: %i[create]
+    end
   end
 end
