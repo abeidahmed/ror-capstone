@@ -1,6 +1,6 @@
 class App::TweetsController < App::ApplicationController
   def index
-    @tweets = Tweet.includes(:author)
+    @tweets = Tweet.includes(:author).recent
     @follow_suggestions = User.except_user(current_user)
   end
 
