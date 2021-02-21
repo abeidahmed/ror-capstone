@@ -9,5 +9,7 @@ Rails.application.routes.draw do
     resources :users, only: %i[edit] do
       resources :followings, only: %i[create]
     end
+
+    resources :followings, only: %i[destroy]
   end
 end
