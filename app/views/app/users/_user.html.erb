@@ -1,0 +1,21 @@
+<div class="relative flex space-x-3 p-3">
+  <a href="#" class="absolute inset-0"></a>
+  <div class="flex-shrink-0">
+    <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=144&amp;h=144&amp;q=80" alt="">
+  </div>
+  <div class="flex-1 flex items-center justify-between">
+    <div class="flex-1">
+      <h5 class="font-medium text-gray-700"><%= user.full_name %></h5>
+      <span class="text-gray-500">@<%= user.username %></span>
+    </div>
+    <% if current_user.following?(user) %>
+      <%= form_with url: app_following_path(user), method: :delete, class: "relative", data: { remote: true } do |form| %>
+        <%= form.submit "Unfollow", class: "px-4 flex-shirnk-0 py-1 text-sm font-medium leading-6 bg-red-50 text-red-500 border border-red-500 rounded-full focus:outline-none hover:bg-red-100 transition duration-150 ease-in-out" %>
+      <% end %>
+    <% else %>
+      <%= form_with url: app_user_followings_path(user), class: "relative", data: { remote: true } do |form| %>
+        <%= form.submit "Follow", class: "px-4 flex-shirnk-0 py-1 text-sm font-medium leading-6 bg-blue-50 text-blue-500 border border-blue-500 rounded-full focus:outline-none hover:bg-blue-100 transition duration-150 ease-in-out" %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

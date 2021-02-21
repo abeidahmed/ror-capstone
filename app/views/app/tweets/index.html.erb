@@ -27,35 +27,12 @@
       <div class="absolute -ml-12 xl:hidden top-2">
         <button type="button" data-action="toggle#hide" class="p-2 rounded-full text-gray-700 bg-white shadow"><%= embed_svg "x", class: "h-6 w-6" %></button>
       </div>
-      <div class="xl:mt-4 bg-white xl:rounded-lg xl:shadow">
+      <div id="follow-suggestion" class="xl:mt-4 bg-white xl:rounded-lg xl:shadow">
         <header class="border-b border-gray-200 py-2 px-3 text-lg font-medium">
           Who to follow
         </header>
         <div class="divide-y">
-          <a href="#" class="flex space-x-3 p-3">
-            <div class="flex-shrink-0">
-              <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=144&amp;h=144&amp;q=80" alt="">
-            </div>
-            <div class="flex-1 flex items-center justify-between">
-              <div class="flex-1">
-                <h5 class="font-medium text-gray-700">Sputnik K</h5>
-                <span class="text-gray-500">@sputnikvaccine</span>
-              </div>
-              <button type="button" class="px-4 flex-shirnk-0 py-1 text-sm font-medium leading-6 text-blue-500 border border-blue-500 rounded-full focus:outline-none hover:bg-blue-100 transition duration-150 ease-in-out">Follow</button>
-            </div>
-          </a>
-          <a href="#" class="flex space-x-3 p-3">
-            <div class="flex-shrink-0">
-              <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=144&amp;h=144&amp;q=80" alt="">
-            </div>
-            <div class="flex-1 flex items-center justify-between">
-              <div class="flex-1">
-                <h5 class="font-medium text-gray-700">Sputnik K</h5>
-                <span class="text-gray-500">@sputnikvaccine</span>
-              </div>
-              <button type="button" class="px-4 flex-shirnk-0 py-1 text-sm font-medium leading-6 text-blue-500 border border-blue-500 rounded-full focus:outline-none hover:bg-blue-100 transition duration-150 ease-in-out">Follow</button>
-            </div>
-          </a>
+          <%= render @follow_suggestions %>
         </div>
       </div>
     </div>

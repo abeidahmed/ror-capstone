@@ -16,6 +16,8 @@ class User < ApplicationRecord
   validates :username, presence: true, length: { maximum: 255 }
   validates :password, presence: true, length: { minimum: 6 }
 
+  scope :except_user, ->(user) { where.not(id: user.id) }
+
   def follow(other_user)
     active_followings.create(followed_id: other_user.id)
   end
