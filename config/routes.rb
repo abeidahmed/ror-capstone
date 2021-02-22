@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resources :sessions, only: %i[new create destroy]
 
   namespace :app do
-    resources :tweets, only: %i[index create]
+    resources :tweets, only: %i[index create] do
+      resources :likes, only: %i[create], module: :tweets
+    end
 
     resources :users, only: %i[show] do
       resources :followings, only: %i[create]
