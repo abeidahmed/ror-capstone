@@ -81,7 +81,7 @@ This project is hosted on heroku.
 - Twitter: [@iamhawaabi](https://twitter.com/iamhawaabi)
 - LinkedIn: [Abeid Ahmed](https://www.linkedin.com/in/abeidahmed/)
 
-## 🤝 Contributing
+## Contributing
 
 - Fork the project
 - Create your feature branch `git checkout -b awesome-feature`
