@@ -11,4 +11,17 @@ RSpec.describe 'Tweets::Likes', type: :feature do
       expect(page).to have_text(1)
     end
   end
+
+  it 'unlikes the twet' do
+    tweet = create(:tweet)
+    user = create(:user)
+    user.likes(tweet)
+    feature_sign_in(user)
+    visit app_tweets_path
+    click_button(id: 'react-button')
+
+    within '#react-button' do
+      expect(page).to have_text(0)
+    end
+  end
 end
