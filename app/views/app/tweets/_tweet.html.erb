@@ -14,8 +14,8 @@
     </div>
     <p class="mt-2"><%= tweet.text %></p>
     <footer class="mt-4">
-      <button type="button" class="text-gray-500 focus:outline-none" aria-label="like/unlike tweet">
-        <%= heroicon "heart", size: 20 %>
+      <button id="react-button" type="button" class="flex items-center text-gray-500 focus:outline-none" aria-label="like/unlike tweet">
+        <%= heroicon "heart", size: 20 %> <span class="ml-1"><%= tweet.get_upvotes.size %></span>
       </button>
     </footer>
   </div>
