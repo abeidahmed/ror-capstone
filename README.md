@@ -52,7 +52,7 @@ and the simplicity that I wanted.
 
 So I decided to publish a ruby gem. At first, I implemented all the core logic
 and the tests within this project itself, and after that I extracted the feature
-and bundled up into a gem. The gem is called [rails_heroicon](https://github.com/abeidahmed/ror-capstone/tree/twitter-for-cars).
+and bundled up into a gem. The gem is called [rails_heroicon](https://github.com/abeidahmed/rails-heroicon).
 
 Feel free to use it in your `rails` project.
 
