@@ -13,5 +13,10 @@
       <span class="text-gray-500"><%= time_ago_in_words(tweet.created_at) %> ago</span>
     </div>
     <p class="mt-2"><%= tweet.text %></p>
+    <footer class="mt-4">
+      <button type="button" class="text-gray-500 focus:outline-none" aria-label="like/unlike tweet">
+        <%= heroicon "heart", size: 20 %>
+      </button>
+    </footer>
   </div>
 </div>
