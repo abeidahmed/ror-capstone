@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  acts_as_voter
+
   has_many :tweets, foreign_key: :author_id, dependent: :destroy
 
   has_many :active_followings, class_name: 'Following', foreign_key: :follower_id, dependent: :destroy
