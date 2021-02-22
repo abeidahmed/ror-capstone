@@ -1,4 +1,6 @@
 class Tweet < ApplicationRecord
+  acts_as_votable
+
   belongs_to :author, class_name: 'User'
   counter_culture :author, column_name: :tweets_count
 
