@@ -1,14 +1,14 @@
 <header class="bg-blue-500 lg:px-4">
   <div class="flex items-center justify-between h-16">
     <button data-action="sidebar#open" class="h-16 px-4 text-blue-100 transition duration-150 ease-in-out border-r border-blue-400 lg:hidden focus:outline-none focus:bg-blue-600">
-      <%= embed_svg "menu", class: "h-6 w-6" %>
+      <%= heroicon "menu-alt-1" %>
     </button>
     <div data-controller="toggle" data-toggle-attribute-value="hidden" data-action="click@window->toggle#hideOutsideClick" class="ml-auto pr-4 lg:pr-0 relative">
       <button data-action="toggle#toggle" class="flex items-center text-sm transition duration-150 ease-in-out rounded-full focus:outline-none">
         <img class="w-8 h-8 rounded-full" src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=144&amp;h=144&amp;q=80" alt="User profile">
         <span class="items-center hidden lg:flex">
           <p class="pl-3 text-sm font-medium text-blue-100"><%= current_user.full_name %></p>
-          <%= embed_svg "chevron-down", class: "h-5 w-5 text-blue-300" %>
+          <%= heroicon "chevron-down", class: "text-blue-300 ml-1", size: 16 %>
         </span>
       </button>
       <div id="user-options" data-toggle-target="toggleable" class="z-40 absolute right-4 w-48 mt-2 origin-top-right rounded-md shadow-lg" hidden>
