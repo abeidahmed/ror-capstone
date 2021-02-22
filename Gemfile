@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.0.0'
 
 gem 'active_link_to', '~> 1.0', '>= 1.0.5'
+gem 'acts_as_votable', '~> 0.13.1'
 gem 'bcrypt', '~> 3.1.7'
 gem 'counter_culture', '~> 2.7'
 gem 'pg', '~> 1.1'
