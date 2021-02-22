@@ -1,0 +1,10 @@
+<%= form_with url: app_tweet_likes_path(tweet), data: { remote: true } do |form| %>
+  <%= button_tag id: "react-button", type: "submit", class: "inline-flex items-center text-gray-500 focus:outline-none" do %>
+    <% if current_user.voted_up_on?(tweet) %>
+      <%= heroicon "heart", variant: :solid, class: "text-red-500" %>
+    <% else %>
+      <%= heroicon "heart", size: 20 %>
+    <% end %>
+    <span class="ml-1 leading-5"><%= tweet.get_upvotes.size %></span>
+  <% end %>
+<% end %>
