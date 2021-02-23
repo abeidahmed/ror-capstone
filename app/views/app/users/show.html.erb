@@ -42,11 +42,11 @@
           <%= render "stat", user: @user %>
           <section id="user-followers" class="py-3">
             <h3 class="px-3 text-base text-gray-600 font-medium mb-2">Followed by</h3>
-            <%= render @user.followers %>
+            <%= render @user.followers.recent %>
           </section>
           <section id="user-followings" class="py-3">
             <h3 class="px-3 text-base text-gray-600 font-medium mb-2">Following</h3>
-            <%= render @user.followings %>
+            <%= render @user.followings.recent %>
           </section>
         </div>
       </div>
