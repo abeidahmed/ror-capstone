@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.0'
+ruby '2.7.2'
 
 gem 'active_link_to', '~> 1.0', '>= 1.0.5'
 gem 'acts_as_votable', '~> 0.13.1'
