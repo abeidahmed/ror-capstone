@@ -1,5 +1,5 @@
 module TweetsHelper
-  def render_like_button(tweet)
+  def render_like_button_for(tweet)
     if current_user.voted_up_on?(tweet)
       heroicon 'heart', variant: :solid, class: 'text-red-500'
     else
