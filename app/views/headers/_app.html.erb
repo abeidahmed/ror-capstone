@@ -1,0 +1,24 @@
+<header class="bg-blue-500 lg:px-4">
+  <div class="flex items-center justify-between h-16">
+    <button data-action="sidebar#open" class="h-16 px-4 text-blue-100 transition duration-150 ease-in-out border-r border-blue-400 lg:hidden focus:outline-none focus:bg-blue-600">
+      <%= heroicon "menu-alt-1" %>
+    </button>
+    <div data-controller="toggle" data-toggle-attribute-value="hidden" data-action="click@window->toggle#hideOutsideClick" class="ml-auto pr-4 lg:pr-0 relative">
+      <button data-action="toggle#toggle" class="flex items-center text-sm transition duration-150 ease-in-out rounded-full focus:outline-none">
+        <% cache ['user-header-avatar'], expires_in: 1.day do %>
+          <%= avatar_for current_user, classes: "w-8 h-8 rounded-full" %>
+        <% end %>
+        <span class="items-center hidden lg:flex">
+          <p class="pl-3 text-sm font-medium text-blue-100"><%= current_user.full_name %></p>
+          <%= heroicon "chevron-down", class: "text-blue-300 ml-1", size: 16 %>
+        </span>
+      </button>
+      <div id="user-options" data-toggle-target="toggleable" class="z-40 absolute right-4 w-48 mt-2 origin-top-right rounded-md shadow-lg" hidden>
+        <div class="py-1 bg-white rounded-md shadow-xs">
+          <%= link_to "Your profile", app_user_path(current_user), class: "block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:bg-gray-100" %>
+          <%= link_to "Sign out", session_path("current_user"), method: :delete, class: "block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:bg-gray-100" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

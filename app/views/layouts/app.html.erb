@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Twitter for cars</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
+    <%= stylesheet_pack_tag "application", media: "all", "data-turbolinks-track": "reload" %>
+    <%= javascript_pack_tag "application", "data-turbolinks-track": "reload" %>
+  </head>
+
+  <body data-controller="sidebar" class="flex min-h-screen bg-gray-100 text-sm text-gray-900">
+    <%= render "sidebars/app" %>
+    <div class="flex flex-col flex-1 overflow-y-auto">
+      <%= render "headers/app" %>
+      <%= yield %>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<div class="flex space-x-3 py-4">
+  <div class="flex-shrink-0">
+    <%= link_to app_user_path(tweet.author) do %>
+      <% cache ['tweet-author-avatar', tweet.author.id], expires_in: 1.day do %>
+        <%= avatar_for tweet.author, classes: "h-12 w-12 rounded-full" %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="flex-1">
+    <div class="flex items-center">
+      <div class="flex items-center min-w-0 truncate w-0 flex-1">
+        <h5 class="font-medium text-gray-700 truncate"><%= tweet.author_full_name %></h5>
+        <span class="text-gray-500 ml-2 truncate">@<%= tweet.author_username %></span>
+      </div>
+      <span class="text-gray-500"><%= time_ago_in_words(tweet.created_at) %> ago</span>
+    </div>
+    <p class="mt-2"><%= tweet.text %></p>
+    <footer class="mt-4">
+      <%= render "app/tweets/tweet_action", tweet: tweet %>
+    </footer>
+  </div>
+</div>

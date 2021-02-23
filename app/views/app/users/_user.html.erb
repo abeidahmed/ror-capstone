@@ -1,0 +1,15 @@
+<div class="relative flex p-3">
+  <%= link_to app_user_path(user), class: "absolute inset-0" do; end %>
+  <div class="flex-shrink-0 flex items-center space-x-4 flex-1">
+    <% cache ['follow-suggest', user.id], expires_in: 1.day do %>
+      <%= avatar_for user, classes: "h-10 w-10 rounded-full" %>
+    <% end %>
+    <div class="flex-1">
+      <h5 class="font-medium text-gray-700"><%= user.full_name %></h5>
+      <span class="text-gray-500">@<%= user.username %></span>
+    </div>
+  </div>
+  <div class="flex items-center justify-between">
+    <%= render_follow_button_for(user) %>
+  </div>
+</div>

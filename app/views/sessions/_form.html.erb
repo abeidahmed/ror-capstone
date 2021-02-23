@@ -1,0 +1,14 @@
+<%= form_with url: sessions_path, data: { controller: "form", action: "ajax:error->form#onError", remote: true }, class: "mt-8" do |form| %>
+  <div class="rounded-md shadow-sm">
+    <div>
+      <%= form.text_field :username, required: true, class: "relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-t-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5", placeholder: "Username", autofocus: true, autocomplete: "off" %>
+    </div>
+    <div class="-mt-px">
+      <%= form.password_field :password, required: true, class: "relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-b-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5", placeholder: "Password", autocomplete: "off" %>
+    </div>
+    <%= render "shared/form_error", error_type: "invalid" %>
+    <div class="mt-6">
+      <%= form.submit "Sign in", class: "flex justify-center w-full px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700" %>
+    </div>
+  </div>
+<% end %>

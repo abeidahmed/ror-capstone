@@ -1,0 +1,31 @@
+<div data-sidebar-target="overlay" class="fixed inset-0 z-10 lg:hidden" hidden>
+  <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+</div>
+<aside data-sidebar-target="aside" class="fixed top-0 z-50 -translate-x-full flex flex-col flex-shrink-0 w-64 h-screen transition duration-150 ease-in-out transform bg-gray-800 lg:translate-x-0 lg:sticky">
+  <div class="relative flex items-center h-16 px-4 bg-gray-900">
+    <%= link_to app_tweets_path do %>
+      <%= image_tag "svg/logo-full-brand.svg" %>
+    <% end %>
+    <div data-sidebar-target="closeButton" class="absolute top-0 right-0 p-2 -mr-14" hidden>
+      <button data-action="sidebar#close" class="flex items-center p-2 text-white bg-gray-700 rounded-full focus:outline-none focus:bg-gray-500 lg:hidden">
+        <%= heroicon "x" %>
+      </button>
+    </div>
+  </div>
+  <div class="mt-4">
+    <nav class="sidebar px-2 space-y-1 text-sm font-medium">
+      <%= active_link_to app_tweets_path, class: "flex items-center p-2 rounded-md text-gray-300 hover:text-gray-100 transition duration-150 ease-in-out" do %>
+        <%= heroicon "home" %>
+        <span class="pl-3 font-medium leading-5 tracking-wide">
+          Dashboard
+        </span>
+      <% end %>
+      <%= active_link_to app_user_path(current_user), class: "flex items-center p-2 rounded-md text-gray-300 hover:text-gray-100 transition duration-150 ease-in-out" do %>
+        <%= heroicon "user" %>
+        <span class="pl-3 font-medium leading-5 tracking-wide">
+          My profile
+        </span>
+      <% end %>
+    </nav>
+  </div>
+</aside>

@@ -1,0 +1,22 @@
+<%= form_with model: @user, data: { controller: "form", action: "ajax:error->form#onError", remote: true }, class: "space-y-4" do |form| %>
+  <div>
+    <%= form.label :username, class: "block text-sm font-medium text-gray-700" %>
+    <%= form.text_field :username, class: "text-sm rounded-md border-gray-300 block w-full mt-1 shadow-sm form-input", autocomplete: "off", autofocus: true %>
+    <%= render "shared/form_error", error_type: "username" %>
+  </div>
+  <div>
+    <%= form.label :full_name, class: "block text-sm font-medium text-gray-700" %>
+    <%= form.text_field :full_name, class: "text-sm rounded-md border-gray-300 block w-full mt-1 shadow-sm form-input", autocomplete: "off"%>
+    <%= render "shared/form_error", error_type: "full_name" %>
+  </div>
+  <div>
+    <%= form.label :password, class: "block text-sm font-medium text-gray-700" %>
+    <%= form.password_field :password, class: "text-sm rounded-md border-gray-300 block w-full mt-1 shadow-sm form-input", autocomplete: "off"  %>
+    <%= render "shared/form_error", error_type: "password" %>
+  </div>
+  <div>
+    <span class="rounded-md shadow-sm">
+      <%= form.submit "Create account", class: "block w-full px-3 py-2 text-sm font-medium leading-6 text-white whitespace-no-wrap transition duration-150 ease-in-out bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700" %>
+    </span>
+  </div>
+<% end %>

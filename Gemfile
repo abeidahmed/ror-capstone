@@ -1,16 +1,21 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.0'
+ruby '2.7.2'
 
+gem 'active_link_to', '~> 1.0', '>= 1.0.5'
+gem 'acts_as_votable', '~> 0.13.1'
+gem 'bcrypt', '~> 3.1.7'
+gem 'counter_culture', '~> 2.7'
+gem 'faker', '~> 2.16'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.1'
+gem 'rails_heroicon', '~> 0.1.0'
 gem 'sass-rails', '>= 6'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 5.0'
 # gem 'redis', '~> 4.0'
-# gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
