@@ -66,8 +66,10 @@ Feel free to use it in your `rails` project.
 
 This project is hosted on heroku.
 
-- `heroku create your_site_name`
-- `git push heroku master`
+- `heroku apps:create your_site_name`
+- `heroku buildpacks:add heroku/nodejs --index 1`
+- `heroku buildpacks:add heroku/ruby --index 2`
+- `git push heroku main`
 
 > You do not need to run the `rails s` or `migrate` the `db`. The `Procfile`
 > located in the root directory automatically does this for you. Feel free to
