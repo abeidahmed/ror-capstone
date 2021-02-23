@@ -3,6 +3,10 @@
 > A ruby on rails social media app where users can sign up, follow one another,
 > and post tweets.
 
+## Screenshot
+
+![App screenshot](/public/images/screenshot.png)
+
 ## Table of contents
 
 - [Live demo](#live-demo)
