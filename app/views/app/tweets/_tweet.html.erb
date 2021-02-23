@@ -1,7 +1,7 @@
 <div class="flex space-x-3 py-4">
   <div class="flex-shrink-0">
     <%= link_to app_user_path(tweet.author) do %>
-      <img class="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=144&amp;h=144&amp;q=80" alt="">
+      <%= image_tag avatar_for(tweet.author_full_name), aria: { label: tweet.author_full_name }, class: "h-12 w-12 rounded-full" %>
     <% end %>
   </div>
   <div class="flex-1">
