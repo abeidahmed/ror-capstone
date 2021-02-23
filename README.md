@@ -18,7 +18,7 @@
 
 ## Live demo
 
-TBA
+Visit this [link](https://twitter-for-cars.herokuapp.com/)
 
 ## Features
 
@@ -40,6 +40,7 @@ TBA
 - `cd` into the project
 - Run `git pull origin main`
 - Run `bundle install`
+- Run `yarn install` to install all the npm dependencies
 - Setup your `db` in the `database.yml` and run `rails db:setup`
 - Run `rails s` and visit `localhost:3000`
 
