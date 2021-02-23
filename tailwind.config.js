@@ -1,7 +1,7 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-  purge: [],
+  purge: ['./app/views/**/*.html.erb'],
   darkMode: false,
   theme: {
     extend: {
