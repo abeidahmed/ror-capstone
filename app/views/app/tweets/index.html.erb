@@ -13,7 +13,9 @@
     <div class="p-4 bg-white rounded-md shadow my-4">
       <div class="flex space-x-3">
         <div class="flex-shrink-0">
-          <%= image_tag avatar_for(current_user.full_name), aria: { label: current_user.full_name }, class: "h-12 w-12 rounded-full" %>
+          <% cache ['tweet-author-current', current_user.id], expires_in: 1.day do %>
+            <%= avatar_for current_user, classes: "h-12 w-12 rounded-full" %>
+          <% end %>
         </div>
         <div class="flex-1">
           <%= render "form" %>

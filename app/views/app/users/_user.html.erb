@@ -1,23 +1,27 @@
-<div class="relative flex p-3">
-  <%= link_to app_user_path(user), class: "absolute inset-0" do; end %>
-  <div class="flex-shrink-0 flex items-center space-x-4 flex-1">
-    <%= image_tag avatar_for(user.full_name), aria: { label: user.full_name }, class: "h-10 w-10 rounded-full" %>
-    <div class="flex-1">
-      <h5 class="font-medium text-gray-700"><%= user.full_name %></h5>
-      <span class="text-gray-500">@<%= user.username %></span>
+<% cache user do %>
+  <div class="relative flex p-3">
+    <%= link_to app_user_path(user), class: "absolute inset-0" do; end %>
+    <div class="flex-shrink-0 flex items-center space-x-4 flex-1">
+      <% cache ['follow-suggest', user.id], expires_in: 1.day do %>
+        <%= avatar_for user, classes: "h-10 w-10 rounded-full" %>
+      <% end %>
+      <div class="flex-1">
+        <h5 class="font-medium text-gray-700"><%= user.full_name %></h5>
+        <span class="text-gray-500">@<%= user.username %></span>
+      </div>
     </div>
-  </div>
-  <div class="flex items-center justify-between">
-    <% unless current_user == user %>
-      <% if current_user.following?(user) %>
-        <%= form_with url: app_following_path(user), method: :delete, class: "relative", data: { remote: true } do |form| %>
-          <%= form.submit "Unfollow", class: "px-4 flex-shirnk-0 py-1 text-sm font-medium leading-6 bg-red-50 text-red-500 border border-red-500 rounded-full focus:outline-none hover:bg-red-100 transition duration-150 ease-in-out" %>
-        <% end %>
-      <% else %>
-        <%= form_with url: app_user_followings_path(user), class: "relative", data: { remote: true } do |form| %>
-          <%= form.submit "Follow", class: "px-4 flex-shirnk-0 py-1 text-sm font-medium leading-6 bg-blue-50 text-blue-500 border border-blue-500 rounded-full focus:outline-none hover:bg-blue-100 transition duration-150 ease-in-out" %>
+    <div class="flex items-center justify-between">
+      <% unless current_user == user %>
+        <% if current_user.following?(user) %>
+          <%= form_with url: app_following_path(user), method: :delete, class: "relative", data: { remote: true } do |form| %>
+            <%= form.submit "Unfollow", class: "px-4 flex-shirnk-0 py-1 text-sm font-medium leading-6 bg-red-50 text-red-500 border border-red-500 rounded-full focus:outline-none hover:bg-red-100 transition duration-150 ease-in-out" %>
+          <% end %>
+        <% else %>
+          <%= form_with url: app_user_followings_path(user), class: "relative", data: { remote: true } do |form| %>
+            <%= form.submit "Follow", class: "px-4 flex-shirnk-0 py-1 text-sm font-medium leading-6 bg-blue-50 text-blue-500 border border-blue-500 rounded-full focus:outline-none hover:bg-blue-100 transition duration-150 ease-in-out" %>
+          <% end %>
         <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
-</div>
+<% end %>

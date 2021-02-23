@@ -1,7 +1,9 @@
 <div class="flex space-x-3 py-4">
   <div class="flex-shrink-0">
     <%= link_to app_user_path(tweet.author) do %>
-      <%= image_tag avatar_for(tweet.author_full_name), aria: { label: tweet.author_full_name }, class: "h-12 w-12 rounded-full" %>
+      <% cache ['tweet-author-avatar', tweet.author.id], expires_in: 1.day do %>
+        <%= avatar_for tweet.author, classes: "h-12 w-12 rounded-full" %>
+      <% end %>
     <% end %>
   </div>
   <div class="flex-1">

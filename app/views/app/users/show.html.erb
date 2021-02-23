@@ -2,7 +2,9 @@
   <div class="xl:col-span-8">
     <div class="relative" style="padding-bottom: 36%">
       <div class="absolute inset-0 -mx-4 xl:pr-4">
-        <img class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1548661710-7f540c9c56d6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=80" alt="">
+        <% cache ["user-twitter-banner", @user.id], expires_in: 1.day do %>
+          <img class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1548661710-7f540c9c56d6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=80" alt="">
+        <% end %>
       </div>
     </div>
     <div class="flex items-center justify-between">
@@ -30,7 +32,9 @@
         <div class="divide-y">
           <section class="py-3 text-center">
             <div>
-              <%= image_tag avatar_for(@user.full_name), aria: { label: @user.full_name }, class: "h-16 w-16 rounded-full mx-auto" %>
+              <% cache ["user-profile-avatar", @user.id], expires_in: 1.day do %>
+                <%= avatar_for @user, classes: "h-16 w-16 rounded-full mx-auto" %>
+              <% end %>
             </div>
             <h2 class="text-base mt-2 leading-5"><%= @user.full_name %></h2>
             <span class="text-gray-500 leading-5">@<%= @user.username %></span>

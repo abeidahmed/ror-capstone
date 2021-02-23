@@ -5,7 +5,9 @@
     </button>
     <div data-controller="toggle" data-toggle-attribute-value="hidden" data-action="click@window->toggle#hideOutsideClick" class="ml-auto pr-4 lg:pr-0 relative">
       <button data-action="toggle#toggle" class="flex items-center text-sm transition duration-150 ease-in-out rounded-full focus:outline-none">
-        <%= image_tag avatar_for(current_user.full_name), aria: { label: current_user.full_name }, class: "w-8 h-8 rounded-full" %>
+        <% cache ['user-header-avatar'], expires_in: 1.day do %>
+          <%= avatar_for current_user, classes: "w-8 h-8 rounded-full" %>
+        <% end %>
         <span class="items-center hidden lg:flex">
           <p class="pl-3 text-sm font-medium text-blue-100"><%= current_user.full_name %></p>
           <%= heroicon "chevron-down", class: "text-blue-300 ml-1", size: 16 %>
